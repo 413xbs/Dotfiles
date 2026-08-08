@@ -1,0 +1,38 @@
+# ~/.config/starship.toml
+
+format = """
+[](red)\
+$username\
+[](bg:red fg:red)\
+$hostname\
+[](bg:red fg:white)\
+$directory\
+[](fg:white)\
+$character
+"""
+
+add_newline = true
+
+[username]
+style_user = "bold bg:red fg:white"
+style_root = "bold bg:red fg:white"
+format = '[ $user ]($style)'
+disabled = false
+show_always = true
+
+[hostname]
+style = "bold bg:red fg:white"
+format = '[ $hostname ]($style)'
+disabled = false
+ssh_only = false
+
+[directory]
+style = "bold bg:white fg:black"
+format = '[ $path ]($style)'
+
+[git_branch]
+style = "bg:white fg:black"
+format = '[ $symbol$branch ]($style)'
+
+[character]
+success_symbol = "[ ](bold white)"
