@@ -1,0 +1,41 @@
+# General Behavior
+ignore-empty-password
+show-failed-attempts
+indicator-idle-visible
+
+# Background (Choose ONE: image, color, or effect)
+# For a screenshot-blur effect, run: swaylock -i $(grim /tmp/screen.png && convert /tmp/screen.png -blur 0x8 /tmp/screen.png && echo /tmp/screen.png)
+image=/home/413xbs/Pictures/1368233.png
+scaling=fill
+
+# Indicator Ring Layout
+indicator-radius=100
+indicator-thickness=12
+
+
+# Styling & Colors (Hex format: RRGGBBAA)
+# Inner Circle
+inside-color=080808
+inside-ver-color=53031b
+inside-wrong-color=080808
+inside-clear-color=080808
+
+# Outer Ring
+ring-color=181818
+ring-ver-color=e80a4d
+ring-wrong-color=181818
+ring-clear-color=181818
+line-color=282828
+
+# Key Stroke Highlights
+key-hl-color=e80a4d
+bs-hl-color=e80a4d
+
+# Text & Font
+font="Adwaita SemiBold"
+font-size=32
+text-color=ffffff
+text-clear-color=ffffff
+text-wrong-color=ffffff
+text-ver-color=ffffff
+

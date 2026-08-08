@@ -1,0 +1,211 @@
+#### Sway Config
+
+### Variables
+
+# Mod
+set $mod Mod4
+
+# Vim-like Binds
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Default Terminal Emulator
+set $term kitty
+
+# Default Application Launcher
+set $rofi_cmd rofi \
+        -terminal '$term'
+set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
+
+# Colors
+set $acc #E80A4D
+set $acc2 #53031b
+set $fg #ffffff
+
+### Output Configuration
+
+# Wallpaper
+output * bg /home/413xbs/Pictures/1368233.png fill
+
+# Displays
+output DP-3 resolution 1920x1080@60Hz position 0,0  adaptive_sync on
+
+### Sway Appearance
+
+# General
+gaps outer 8
+gaps inner 8
+default_border pixel 4
+corner_radius 4
+shadows on
+shadow_color #000000cc
+font pango:Adwaita SemiBold 12
+
+seat seat0 xcursor_theme Simp1e 24
+exec_always autotiling
+
+# Window Colors
+client.focused $acc $acc $fg $acc $acc
+client.focused_inactive $acc2 $acc2 $fg $acc2 $acc2
+client.unfocused $acc2 $acc2 $fg $acc2 $acc2
+client.urgent $acc $acc $fg $acc $acc
+client.placeholder $acc $acc $fg $acc $acc
+
+# GTK Theme
+exec_always gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Material-Black-Cherry'
+exec_always gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+exec_always gsettings set org.gnome.desktop.interface cursor-theme 'Simp1e'
+exec_always gsettings set org.gnome.desktop.interface cursor-size 24
+
+### Idle Configuration
+# Swaylock (optional)
+
+### Input Configuration
+input "type:touchpad" {
+	dwt enabled
+	dwtp enabled
+	tap enabled
+	tap_button_map lrm
+	natural_scroll enabled
+}
+
+### Key Binds
+
+## Basic
+
+# Launch Terminal
+ bindsym $mod+Return exec $term
+
+# Kill Focused Window
+bindsym $mod+Shift+q kill
+
+# Open Launcher
+bindsym $mod+d exec $menu
+
+# Mod Drag & Resize
+floating_modifier $mod normal
+
+# Reload Sway Config
+bindsym $mod+Shift+c reload
+
+# Session Logout
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+
+## Window Navigation
+
+# Switch Focus (mod)
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Switch Focus (mod alt)
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Switch Focus (mod-shift)
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Switch Focus (mod-shift alt)
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Workspace Navigation
+
+# Switch Workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move Focused Window -> Workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+## Layout Controls
+
+# Split Screen
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Switch Layout Style
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Fullscreen Focused Window 
+bindsym $mod+f fullscreen
+
+# Toggle Float/Tile
+bindsym $mod+Shift+space floating toggle
+
+# Switch Focus Float/Tile
+bindsym $mod+space focus mode_toggle
+
+# Focus Parent
+bindsym $mod+a focus parent
+
+## Scratchpad
+
+# Move Focused -> Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Cycle Scratchpad Workspaces
+bindsym $mod+minus scratchpad show
+
+## Resize Windows
+mode "resize" {
+
+# Shrink Width
+bindsym $left resize shrink width 10px
+
+# Grow Height
+bindsym $down resize grow height 10px
+
+# Shrink Height    
+bindsym $up resize shrink height 10px
+
+#Grow Width
+bindsym $right resize grow width 10px
+
+# Alt Controls
+bindsym Left resize shrink width 10px
+bindsym Down resize grow height 10px
+bindsym Up resize shrink height 10px
+bindsym Right resize grow width 10px
+
+# Load Default
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+
+# Toggle Resize Mode
+bindsym $mod+r mode "resize"
+
+## Config Directories
+include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'

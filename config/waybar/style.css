@@ -1,0 +1,149 @@
+@define-color bg #080808;
+@define-color bg2 #181818;
+@define-color bg3 #282828;
+@define-color acc #e80a4d;
+@define-color acc2 #53031b;
+@define-color fg #ffffff;
+
+* {
+    font-family: 'Adwaita';
+    font-size: 14px;
+    font-weight: 600;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#waybar > box {
+    margin: 8 16 0 16;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+}
+
+#workspaces button {
+    margin: 4;
+    padding: 2 0;
+    background-color: @bg2;
+    color: #ffffff;
+    border: 2 solid @bg3;
+    border-radius: 4;
+}
+
+#workspaces {
+    background-color: @bg;
+    border: 2 solid @bg2;
+    border-radius: 4;
+}
+
+#workspaces button:hover,
+#clock:hover,
+#battery:hover,
+#custom-media:hover,
+#tray > .passive:hover,
+#tray > .active:hover,
+#pulseaudio:hover,
+#custom-power:hover,
+#idle_inhibitor:hover {
+    border-color: @acc;
+    background-color: @bg2;
+}
+
+#workspaces button.focused, #workspaces button.active, #workspaces button.urgent {
+    background-color: @acc2;
+    border-color: @acc;
+}
+
+#clock,
+#battery,
+#custom-media,
+#pulseaudio,
+#tray {
+    border-radius: 4;
+    background-color: @bg;
+    border: 2 solid @bg2;
+}
+
+#custom-power {
+    padding: 0 0 0 4;
+    background-color: @bg;
+    border: 2 solid @bg2;
+    border-radius: 4;
+}
+
+#clock {
+    padding: 0 8;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-media {
+    min-width: 100px;
+    padding: 0 8;
+}
+
+#pulseaudio {
+    padding: 0 6;
+}
+
+#battery {
+    padding: 0 16 0 8;
+}
+
+#tray {
+    padding: 4;
+}
+
+#tray > .passive, #tray > .active, #tray > .needs-attention {
+    -gtk-icon-effect: dim;
+    border-radius: 4;
+    border: 2 solid transparent;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray widget > image {
+    margin: 8;
+}
+
+#tray menu {
+    border-radius: 4;
+    border: 2 solid @bg2;
+}
+
+tooltip {
+    background: @bg;
+    border-radius: 4;
+    border: 2 solid @bg2;
+}

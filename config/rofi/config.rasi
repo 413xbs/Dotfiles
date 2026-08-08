@@ -1,0 +1,139 @@
+/*
+ * ROFI Color theme
+ * User: 413xbs
+ */
+
+configuration {
+    modes: "window, run, drun";
+    show-icons: true;
+    display-run: "";
+    display-drun: "";
+    display-window: "";
+    drun-display-format: "{icon}{name}";
+    icon-theme: "Papirus";
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+* {
+    bg: #080808;
+    bg2: #181818;
+
+    acc: #e80a4d;
+    acc2: #53031b;
+
+    fg: #ffffff;
+    
+    border-radius: 4;
+
+    font: "Adwaita SemiBold 12";
+}
+
+window {
+    background-color: @bg;
+    border: 2;
+    border-color: @bg2;
+    border-radius: 4px;
+    width: 35%;
+}
+
+mainbox {
+    border: 0;
+    padding: 0;
+}
+
+message {
+    border:       2px 0px 0px ;
+    border-color: @acc;
+    padding:      1px ;
+}
+
+textbox {
+    text-color: @fg;
+}
+
+listview {
+    fixed-height: 0;
+    border: 0;
+    spacing: 2px ;
+    scrollbar: false;
+    padding: 2px 0px 0px;
+    lines: 4;
+    fixed-num-lines: true;
+}
+
+element {
+    border:  0;
+    padding: 4px ;
+    highlight: none;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+element-icon {
+    padding: 2 0 2 2;
+    size: 1em;
+}
+element.normal.normal,
+element.normal.active,
+element.normal.active,
+element.alternate.normal,
+element.alternate.urgent,
+element.alternate.active {
+    background-color: @bg;
+    text-color:       @fg;
+}
+
+element.selected.normal, element.selected.urgent, element.selected.active {
+    background-color: @acc2;
+    border: 2;
+    border-color: @acc;
+    text-color:       @fg;
+}
+
+mode-switcher {
+    border:       2px 0px 0px ;
+    border-color: @bg;
+}
+
+button.selected {
+    background-color: @acc2;
+    border: 2;
+    border-color: @acc;
+    text-color:       @fg;
+}
+
+inputbar {
+    text-color: @bg2;
+    padding: 2;
+}
+
+case-indicator {
+    spacing:    0;
+    text-color: @acc;
+}
+
+entry {
+    padding: 2 0;
+    text-color: @fg;
+    placeholder: "Search...";
+}
+
+inputbar {
+    children:   [textbox-prompt-colon,entry,case-indicator ];
+    background-color: @bg2;
+    border: 2;
+    border-color: @acc;
+    padding: 2;
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    str:        " ";
+    padding: 2 2 0 4;
+    text-color: @fg;
+}
