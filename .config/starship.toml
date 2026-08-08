@@ -3,9 +3,9 @@
 format = """
 [](red)\
 $username\
-[](bg:red fg:red)\
+[](bg:red fg:red)\
 $hostname\
-[](bg:red fg:white)\
+[](bg:white fg:red)\
 $directory\
 [](fg:white)\
 $character
