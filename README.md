@@ -1,5 +1,7 @@
 # dotfiles
 
+**DISCLAIMER: I did not make the images for the wallpapers and fastfetch. If someone can find the original artists, I would love to give them credit here!**
+
 Feel free to use these files or alter them at your convenience. I will try to update them as often as possible.
 
 ### Preview:
