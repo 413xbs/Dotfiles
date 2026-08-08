@@ -35,6 +35,7 @@ output DP-3 resolution 1920x1080@60Hz position 0,0  adaptive_sync on
 ### Sway Appearance
 
 # General
+animation_duration_ms 250
 gaps outer 8
 gaps inner 8
 default_border pixel 4
