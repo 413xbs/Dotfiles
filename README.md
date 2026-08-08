@@ -2,8 +2,6 @@
 
 Feel free to use these files or alter them at your convenience. I will try to update them as often as possible.
 
-Currently working on configs for wofi to add animation support. I will leave the original rofi configs for anyone who still wants to use them.
-
 ### Preview (Outdated):
 
 <img height="480" alt="Screenshot1" src="https://github.com/user-attachments/assets/bc0efe71-e4ce-49d5-8cfb-767a04826f5c" />
